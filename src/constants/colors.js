@@ -6,3 +6,6 @@ export const CinzaEscrita = "#DBDBDB";
 export const CinzaDesmarcado = "#D4D4D4";
 export const CinzaMarcado = "#CFCFCF";
 export const CinzaFundo = "#E5E5E5";
+export const EscritaPgHoje = "#BABABA";
+export const CinzaCheckedOff = "#EBEBEB";
+export const BordaCinzaCheckedOff = "#E7E7E7";
