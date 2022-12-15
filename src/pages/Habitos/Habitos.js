@@ -1,6 +1,8 @@
+import InputNovoHabito from "../../components/InputNovoHabito/InputNovoHabito";
+import MeuHabito from "../../components/MeuHabito/MeuHabito";
 import NavBar from "../../components/NavBar/NavBar";
 import TopBar from "../../components/TopBar/TopBar";
-import { StyledContainerHabitos, StyledMeusHabitos, StyledInputsNovoHabito } from "./styled";
+import { StyledContainerHabitos, StyledMeusHabitos } from "./styled";
 
 const Habitos = () => {
     return (
@@ -13,27 +15,12 @@ const Habitos = () => {
                         <ion-icon name='add-outline'></ion-icon>
                     </button>
                 </StyledMeusHabitos>
-                <StyledInputsNovoHabito>
-                    <input
-                        type='text'
-                        name='novo-habito'
-                        id='novo-habito'
-                        placeholder='nome do hábito'
-                    />
-                    <ul>
-                        <li>D</li>
-                        <li>S</li>
-                        <li>T</li>
-                        <li>Q</li>
-                        <li>Q</li>
-                        <li>S</li>
-                        <li>S</li>
-                    </ul>
-                    <div>
-                        <h1>Cancelar</h1>
-                        <button>Salvar</button>
-                    </div>
-                </StyledInputsNovoHabito>
+                <InputNovoHabito />
+                <MeuHabito />
+                <MeuHabito />
+                <MeuHabito />
+                <MeuHabito />
+
                 <p>
                     Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a
                     trackear!

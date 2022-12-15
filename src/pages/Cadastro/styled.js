@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { CinzaDesmarcardo, CinzaEscrita, AzulSecundario } from "../../constants/colors";
+import { CinzaDesmarcado, CinzaEscrita, AzulSecundario } from "../../constants/colors";
 
 export const StyledContainerPrincipalCadastro = styled.div`
     width: 100%;
@@ -19,7 +19,7 @@ export const StyledContainerPrincipalCadastro = styled.div`
         width: 80%;
         height: 45px;
         margin-bottom: 6px;
-        border: 1px solid ${CinzaDesmarcardo};
+        border: 1px solid ${CinzaDesmarcado};
         border-radius: 5px;
         padding-left: 11px;
         font-family: "Lexend Deca", sans-serif;

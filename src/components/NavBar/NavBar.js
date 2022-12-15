@@ -4,7 +4,7 @@ import "react-circular-progressbar/dist/styles.css";
 import { AzulSecundario } from "../../constants/colors";
 
 const NavBar = () => {
-    const percentage = 20;
+    const percentage = 10;
 
     return (
         <>

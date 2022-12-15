@@ -12,6 +12,7 @@ export const StyledContainerTopBar = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 9px 18px;
+    z-index: 3;
     h1 {
         font-family: "Playball", cursive;
         font-size: 40px;
