@@ -33,6 +33,9 @@ export const StyledContainerPrincipalCadastro = styled.div`
         font-size: 20px;
     }
     button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background-color: ${AzulSecundario};
         border: none;
         width: 80%;
@@ -44,11 +47,6 @@ export const StyledContainerPrincipalCadastro = styled.div`
         font-weight: 400;
         cursor: pointer;
         transition: 0.5s;
-    }
-    button:hover {
-        border: 1px solid ${AzulSecundario};
-        background-color: #fff;
-        color: ${AzulSecundario};
     }
     a {
         margin-top: 25px;

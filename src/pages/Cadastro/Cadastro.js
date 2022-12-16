@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { UrlApi } from "../../constants/urls";
 import axios from "axios";
+import Loading from "../../components/Loading/Loading";
 
 const Cadastro = () => {
     const [email, setEmail] = useState("");
@@ -11,6 +12,7 @@ const Cadastro = () => {
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
     const navigate = useNavigate();
+    const [toggleLoading, setToggleLoading] = useState(false);
 
     function finalizarCadastro(e) {
         e.preventDefault();
@@ -21,12 +23,14 @@ const Cadastro = () => {
             password,
         };
 
+        setToggleLoading(!toggleLoading);
         const promisse = axios.post(`${UrlApi}/auth/sign-up`, body);
         promisse.then((res) => {
             console.log(res.data);
             navigate("/");
         });
         promisse.catch((err) => {
+            setToggleLoading(false);
             console.log(err.response.data);
             alert(err.response.data.message);
         });
@@ -43,6 +47,7 @@ const Cadastro = () => {
                     placeholder='email'
                     onChange={(e) => setEmail(e.target.value)}
                     value={email}
+                    disabled={toggleLoading}
                     required
                 />
                 <input
@@ -52,6 +57,7 @@ const Cadastro = () => {
                     placeholder='password'
                     onChange={(e) => setPassword(e.target.value)}
                     value={password}
+                    disabled={toggleLoading}
                     required
                 />
                 <input
@@ -61,6 +67,7 @@ const Cadastro = () => {
                     placeholder='nome'
                     onChange={(e) => setName(e.target.value)}
                     value={name}
+                    disabled={toggleLoading}
                     required
                 />
                 <input
@@ -70,9 +77,12 @@ const Cadastro = () => {
                     placeholder='foto'
                     onChange={(e) => setImage(e.target.value)}
                     value={image}
+                    disabled={toggleLoading}
                     required
                 />
-                <button type='submit'>Cadastrar</button>
+                <button disabled={toggleLoading} type='submit'>
+                    {toggleLoading ? <Loading /> : "Cadastrar"}
+                </button>
             </form>
             <Link to='/'>Já tem uma conta? Faça login!</Link>
         </StyledContainerPrincipalCadastro>

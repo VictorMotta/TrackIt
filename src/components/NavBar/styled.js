@@ -20,6 +20,9 @@ export const StyledContainerNavBar = styled.div`
         align-items: center;
         position: relative;
     }
+    a {
+        text-decoration: none;
+    }
     h1 {
         font-size: 18px;
         font-weight: 400;
