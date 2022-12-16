@@ -2,7 +2,7 @@ import { StyledContainerPrincipalCadastro } from "./styled";
 import Logo from "../../assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { UrlApi } from "../../constants/urls";
+import { BaseUrl } from "../../constants/urls";
 import axios from "axios";
 import Loading from "../../components/Loading/Loading";
 
@@ -24,7 +24,7 @@ const Cadastro = () => {
         };
 
         setToggleLoading(!toggleLoading);
-        const promisse = axios.post(`${UrlApi}/auth/sign-up`, body);
+        const promisse = axios.post(`${BaseUrl}/auth/sign-up`, body);
         promisse.then((res) => {
             console.log(res.data);
             navigate("/");

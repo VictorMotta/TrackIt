@@ -19,4 +19,15 @@ export const StyledContainerTopBar = styled.div`
         color: #fff;
         cursor: pointer;
     }
+    span {
+        display: inline-block;
+        width: 51px;
+        height: 51px;
+    }
+    span img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
 `;

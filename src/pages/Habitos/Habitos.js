@@ -1,26 +1,23 @@
-import InputNovoHabito from "../../components/InputNovoHabito/InputNovoHabito";
-import MeuHabito from "../../components/MeuHabito/MeuHabito";
+import { useState } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import TopBar from "../../components/TopBar/TopBar";
 import { StyledContainerHabitos, StyledMeusHabitos } from "./styled";
+import InputNovoHabito from "../../components/InputNovoHabito/InputNovoHabito";
 
 const Habitos = () => {
+    const [toggleInputShow, setToggleInputShow] = useState(false);
+
     return (
         <>
             <TopBar />
             <StyledContainerHabitos>
                 <StyledMeusHabitos>
                     <h1>Meus hábitos</h1>
-                    <button>
+                    <button onClick={() => setToggleInputShow(!toggleInputShow)}>
                         <ion-icon name='add-outline'></ion-icon>
                     </button>
                 </StyledMeusHabitos>
-                <InputNovoHabito />
-                <MeuHabito />
-                <MeuHabito />
-                <MeuHabito />
-                <MeuHabito />
-
+                {toggleInputShow && <InputNovoHabito setToggleInputShow={setToggleInputShow} />}
                 <p>
                     Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a
                     trackear!
