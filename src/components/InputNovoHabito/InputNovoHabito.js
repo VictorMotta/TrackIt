@@ -1,12 +1,44 @@
-import { useState } from "react";
-import { StyledContainerInputNovoHabito } from "./styled";
+import { useContext, useState } from "react";
+import { StyledContainerInputNovoHabito, StyledButtonsEnviarCancelar } from "./styled";
 import { diasSemana } from "../../constants/diasDaSemana";
 import ButtonDiasDaSemana from "../ButtonDiasDaSemana/ButtonDiasDaSemana";
+import { BaseUrl } from "../../constants/urls";
+import { AuthContext } from "../../contexts/auth";
+import axios from "axios";
+import Loading from "../Loading/Loading";
 
-const InputNovoHabito = ({ setToggleInputShow }) => {
+const InputNovoHabito = ({ setToggleInputShow, habitos, setHabitos }) => {
+    const { token } = useContext(AuthContext);
     const [name, setName] = useState("");
     const [days, setDays] = useState([]);
+    const [toggleLoading, setToggleLoading] = useState(false);
 
+    function enviarNovoHabito() {
+        const URL = `${BaseUrl}/habits`;
+        const body = {
+            name,
+            days,
+        };
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        };
+        setToggleLoading(true);
+        const promisse = axios.post(URL, body, config);
+        promisse.then((res) => {
+            setHabitos([...habitos, res.data]);
+            setToggleInputShow(false);
+            setToggleLoading(false);
+        });
+        promisse.catch((err) => {
+            console.log(err.response.data);
+            setToggleLoading(false);
+        });
+    }
+
+    console.log(days);
     function cancelar() {
         setName("");
         setDays([]);
@@ -22,16 +54,27 @@ const InputNovoHabito = ({ setToggleInputShow }) => {
                 placeholder='nome do hábito'
                 onChange={(e) => setName(e.target.value)}
                 value={name}
+                disabled={toggleLoading}
             />
             <ul>
-                {diasSemana.map((item) => {
-                    return <ButtonDiasDaSemana item={item} days={days} setDays={setDays} />;
-                })}
+                {diasSemana.map((item) => (
+                    <ButtonDiasDaSemana
+                        key={item.id}
+                        item={item}
+                        days={days}
+                        setDays={setDays}
+                        toggleLoading={toggleLoading}
+                    />
+                ))}
             </ul>
-            <div>
-                <h1 onClick={cancelar}>Cancelar</h1>
-                <button>Salvar</button>
-            </div>
+            <StyledButtonsEnviarCancelar>
+                <h1 onClick={cancelar} disabled={toggleLoading}>
+                    Cancelar
+                </h1>
+                <button onClick={enviarNovoHabito} disabled={toggleLoading}>
+                    {toggleLoading ? <Loading color='#fff' largura={84} altura={50} /> : "Salvar"}
+                </button>
+            </StyledButtonsEnviarCancelar>
         </StyledContainerInputNovoHabito>
     );
 };

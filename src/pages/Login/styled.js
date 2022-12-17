@@ -50,6 +50,11 @@ export const StyledContainerPrincipalLogin = styled.div`
         background-color: #fff;
         color: ${AzulSecundario};
     }
+    button:disabled {
+        background-color: ${AzulSecundario};
+        cursor: not-allowed;
+        border: 1px solid ${AzulSecundario};
+    }
     a {
         margin-top: 25px;
         font-family: "Lexend Deca", sans-serif;

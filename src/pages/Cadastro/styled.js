@@ -48,6 +48,16 @@ export const StyledContainerPrincipalCadastro = styled.div`
         cursor: pointer;
         transition: 0.5s;
     }
+    button:hover {
+        border: 1px solid ${AzulSecundario};
+        background-color: #fff;
+        color: ${AzulSecundario};
+    }
+    button:disabled {
+        background-color: ${AzulSecundario};
+        cursor: not-allowed;
+        border: 1px solid ${AzulSecundario};
+    }
     a {
         margin-top: 25px;
         font-family: "Lexend Deca", sans-serif;

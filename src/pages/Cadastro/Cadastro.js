@@ -28,6 +28,7 @@ const Cadastro = () => {
         promisse.then((res) => {
             console.log(res.data);
             navigate("/");
+            setToggleLoading(false);
         });
         promisse.catch((err) => {
             setToggleLoading(false);
@@ -81,7 +82,7 @@ const Cadastro = () => {
                     required
                 />
                 <button disabled={toggleLoading} type='submit'>
-                    {toggleLoading ? <Loading /> : "Cadastrar"}
+                    {toggleLoading ? <Loading color='#fff' /> : "Cadastrar"}
                 </button>
             </form>
             <Link to='/'>Já tem uma conta? Faça login!</Link>

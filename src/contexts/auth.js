@@ -34,6 +34,7 @@ export const AuthProvider = ({ children }) => {
 
         setUser(loggedUser);
         setToken(data.token);
+
         navigate("/hoje");
     };
     return (

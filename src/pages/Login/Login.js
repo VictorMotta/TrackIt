@@ -5,11 +5,13 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/auth";
 import { BaseUrl } from "../../constants/urls";
 import axios from "axios";
+import Loading from "../../components/Loading/Loading";
 
 const Login = () => {
     const { authenticated, login } = useContext(AuthContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [toggleLoading, setToggleLoading] = useState(false);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -17,18 +19,22 @@ const Login = () => {
             email,
             password,
         };
+        setToggleLoading(true);
         const promisse = axios.post(`${BaseUrl}/auth/login`, body);
         promisse.then((res) => {
             login(res.data);
             console.log("submit", res.data);
+            setToggleLoading(false);
         });
-        promisse.catch((err) => console.log(err.response.data));
+        promisse.catch((err) => {
+            console.log(err.response.data);
+            setToggleLoading(false);
+        });
     }
 
     return (
         <StyledContainerPrincipalLogin>
             <img src={Logo} alt='Logo da track it' />
-            <p>{String(authenticated)}</p>
             <form onSubmit={handleSubmit}>
                 <input
                     type='email'
@@ -37,6 +43,7 @@ const Login = () => {
                     placeholder='email'
                     onChange={(e) => setEmail(e.target.value)}
                     value={email}
+                    disabled={toggleLoading}
                 />
                 <input
                     type='password'
@@ -45,8 +52,11 @@ const Login = () => {
                     placeholder='senha'
                     onChange={(e) => setPassword(e.target.value)}
                     value={password}
+                    disabled={toggleLoading}
                 />
-                <button type='submit'>Entrar</button>
+                <button type='submit' disabled={toggleLoading}>
+                    {toggleLoading ? <Loading color='#fff' /> : "Entrar"}
+                </button>
             </form>
             <Link to='/cadastro'>Não tem uma conta? Cadastre-se!</Link>
         </StyledContainerPrincipalLogin>

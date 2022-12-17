@@ -36,12 +36,15 @@ export const StyledContainerInputNovoHabito = styled.div`
         display: flex;
         margin-top: 8px;
     }
-    div {
-        margin-top: 29px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-    }
+`;
+
+export const StyledButtonsEnviarCancelar = styled.div`
+    height: 35px;
+    margin-top: 29px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
     h1 {
         color: ${AzulSecundario};
         font-size: 16px;
@@ -50,6 +53,8 @@ export const StyledContainerInputNovoHabito = styled.div`
         cursor: pointer;
     }
     button {
+        width: 84px;
+        height: 35px;
         background-color: ${AzulSecundario};
         border: none;
         border-radius: 5px;
@@ -65,5 +70,10 @@ export const StyledContainerInputNovoHabito = styled.div`
         border: 1px solid ${AzulSecundario};
         background-color: #fff;
         color: ${AzulSecundario};
+    }
+    button:disabled {
+        background-color: ${AzulSecundario};
+        cursor: not-allowed;
+        border: 1px solid ${AzulSecundario};
     }
 `;
