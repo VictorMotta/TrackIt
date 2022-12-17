@@ -9,6 +9,7 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [percentage, setPercentage] = useState(0);
 
     useEffect(() => {
         const recoveredUser = localStorage.getItem("user");
@@ -38,7 +39,17 @@ export const AuthProvider = ({ children }) => {
         navigate("/hoje");
     };
     return (
-        <AuthContext.Provider value={{ authenticated: !!user, loading, user, token, login }}>
+        <AuthContext.Provider
+            value={{
+                authenticated: !!user,
+                loading,
+                user,
+                token,
+                percentage,
+                setPercentage,
+                login,
+            }}
+        >
             {children}
         </AuthContext.Provider>
     );

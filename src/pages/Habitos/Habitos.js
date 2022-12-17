@@ -8,7 +8,7 @@ import { BaseUrl } from "../../constants/urls";
 import axios from "axios";
 import MeuHabito from "../../components/MeuHabito/MeuHabito";
 import Loading from "../../components/Loading/Loading";
-import { AzulPrincipal, AzulSecundario } from "../../constants/colors";
+import { AzulPrincipal } from "../../constants/colors";
 
 const Habitos = () => {
     const [toggleInputShow, setToggleInputShow] = useState(false);

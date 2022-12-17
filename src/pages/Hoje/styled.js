@@ -24,7 +24,7 @@ export const StyledContainerDataEPorcentagem = styled.div`
     span {
         font-size: 18px;
         line-height: 22px;
-        color: ${EscritaPgHoje};
+        color: ${(props) => props.colorLetterSpan};
     }
 `;
 

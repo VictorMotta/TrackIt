@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { CinzaDesmarcado, CinzaEscrita, EscritaConteudo } from "../../constants/colors";
+import { EscritaConteudo } from "../../constants/colors";
 
 export const StyledContainerMeuHabito = styled.div`
     width: 90%;

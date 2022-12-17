@@ -3,9 +3,13 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { AzulSecundario } from "../../constants/colors";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/auth";
 
 const NavBar = () => {
-    const percentage = 10;
+    const { percentage } = useContext(AuthContext);
+
+    const percentageTratada = percentage.toFixed(2);
 
     return (
         <>
@@ -16,7 +20,7 @@ const NavBar = () => {
                     </Link>
                     <Link to='/hoje'>
                         <CircularProgressbar
-                            value={percentage}
+                            value={percentageTratada}
                             text='Hoje'
                             background
                             backgroundPadding={6}

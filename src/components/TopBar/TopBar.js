@@ -1,5 +1,4 @@
 import { StyledContainerTopBar } from "./styled";
-import FotoPerfil from "../../assets/foto-perfil.png";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/auth";
 

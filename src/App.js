@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import TopBar from "./components/TopBar/TopBar";
+
 import Cadastro from "./pages/Cadastro/Cadastro";
 import Habitos from "./pages/Habitos/Habitos";
 import Historico from "./pages/Historico/Historico";

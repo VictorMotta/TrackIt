@@ -1,10 +1,5 @@
 import styled from "styled-components";
-import {
-    EscritaConteudo,
-    VerdePrincipal,
-    CinzaCheckedOff,
-    BordaCinzaCheckedOff,
-} from "../../constants/colors";
+import { EscritaConteudo, CinzaCheckedOff, BordaCinzaCheckedOff } from "../../constants/colors";
 
 export const StyledContainerCardHabito = styled.div`
     width: 100%;
@@ -35,9 +30,14 @@ export const StyledContainerInfoHabito = styled.div`
         color: ${EscritaConteudo};
         margin-bottom: 5px;
     }
-    span {
+    p {
         font-size: 13px;
         color: ${EscritaConteudo};
+        line-height: 17px;
+    }
+    span {
+        font-size: 13px;
+        color: ${(props) => props.colorSequencia};
         line-height: 17px;
     }
 `;
@@ -47,8 +47,8 @@ export const StyledContainerCheckBox = styled.div`
     height: 69px;
     display: flex;
     flex-direction: column;
-    background-color: ${CinzaCheckedOff};
-    border: 1px solid ${BordaCinzaCheckedOff};
+    background-color: ${(props) => props.colorBackground};
+    border: 1px solid ${(props) => props.colorBorder};
     display: flex;
     justify-content: center;
     align-items: center;
