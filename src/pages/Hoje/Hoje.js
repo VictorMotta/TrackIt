@@ -51,7 +51,7 @@ const Hoje = () => {
     }, [atualizar]);
 
     useEffect(() => {
-        if (habitosHoje) {
+        if (habitosHoje && habitosHoje != [] && habitosHoje.length != 0) {
             const calcPercentage = (qtdChecked * 100) / habitosHoje.length;
             setPercentage(calcPercentage);
         }
