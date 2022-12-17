@@ -7,10 +7,17 @@ import { AuthContext } from "../../contexts/auth";
 import axios from "axios";
 import Loading from "../Loading/Loading";
 
-const InputNovoHabito = ({ setToggleInputShow, habitos, setHabitos }) => {
+const InputNovoHabito = ({
+    setToggleInputShow,
+    habitos,
+    setHabitos,
+    name,
+    setName,
+    days,
+    setDays,
+}) => {
     const { token } = useContext(AuthContext);
-    const [name, setName] = useState("");
-    const [days, setDays] = useState([]);
+
     const [toggleLoading, setToggleLoading] = useState(false);
 
     function enviarNovoHabito() {
@@ -29,19 +36,20 @@ const InputNovoHabito = ({ setToggleInputShow, habitos, setHabitos }) => {
         const promisse = axios.post(URL, body, config);
         promisse.then((res) => {
             setHabitos([...habitos, res.data]);
+            setName("");
+            setDays("");
             setToggleInputShow(false);
             setToggleLoading(false);
         });
         promisse.catch((err) => {
             console.log(err.response.data);
+            alert(err.response.statusText);
             setToggleLoading(false);
         });
     }
 
     console.log(days);
     function cancelar() {
-        setName("");
-        setDays([]);
         setToggleInputShow(false);
     }
 

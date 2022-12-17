@@ -15,6 +15,8 @@ const Habitos = () => {
     const [habitos, setHabitos] = useState(undefined);
     const { token } = useContext(AuthContext);
     const [loading, setLoading] = useState(false);
+    const [name, setName] = useState("");
+    const [days, setDays] = useState([]);
 
     console.log(habitos);
     useEffect(() => {
@@ -46,6 +48,10 @@ const Habitos = () => {
                 </StyledMeusHabitos>
                 {toggleInputShow && (
                     <InputNovoHabito
+                        name={name}
+                        setName={setName}
+                        days={days}
+                        setDays={setDays}
                         setToggleInputShow={setToggleInputShow}
                         habitos={habitos}
                         setHabitos={setHabitos}

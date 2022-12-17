@@ -19,12 +19,15 @@ const MeuHabito = ({ item, habitos, setHabitos }) => {
             },
         };
 
-        const promisse = axios.delete(URL, config);
-        promisse.then((res) => {
-            console.log(res.data);
-            setHabitos(listaNovoHabito);
-        });
-        promisse.catch((err) => console.log(err.response.data));
+        const deletar = window.confirm("Tem certeza que deseja deletar esse hábito?");
+        if (deletar) {
+            const promisse = axios.delete(URL, config);
+            promisse.then((res) => {
+                console.log(res.data);
+                setHabitos(listaNovoHabito);
+            });
+            promisse.catch((err) => console.log(err.response.data));
+        }
     }
 
     return (

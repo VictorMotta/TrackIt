@@ -5,6 +5,9 @@ const ButtonDiasDaSemana = ({ item, days, setDays, toggleLoading }) => {
     const validation = days.includes(item.id);
 
     function marcaDesmarca() {
+        if (toggleLoading) {
+            return;
+        }
         if (!validation) {
             setDays([...days, item.id]);
         } else {
@@ -21,7 +24,6 @@ const ButtonDiasDaSemana = ({ item, days, setDays, toggleLoading }) => {
                 colorSelected={validation && CinzaMarcado}
                 colorName={validation ? "#ffffff" : CinzaMarcado}
                 onClick={marcaDesmarca}
-                disabled={toggleLoading}
             >
                 {item.day}
             </StyledButtonLi>
