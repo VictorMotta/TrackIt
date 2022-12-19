@@ -54,8 +54,9 @@ const InputNovoHabito = ({
     }
 
     return (
-        <StyledContainerInputNovoHabito>
+        <StyledContainerInputNovoHabito data-test='habit-create-container'>
             <input
+                data-test='habit-name-input'
                 type='text'
                 name='novo-habito'
                 id='novo-habito'
@@ -76,10 +77,14 @@ const InputNovoHabito = ({
                 ))}
             </ul>
             <StyledButtonsEnviarCancelar>
-                <h1 onClick={cancelar} disabled={toggleLoading}>
+                <h1 onClick={cancelar} disabled={toggleLoading} data-test='habit-create-cancel-btn'>
                     Cancelar
                 </h1>
-                <button onClick={enviarNovoHabito} disabled={toggleLoading}>
+                <button
+                    onClick={enviarNovoHabito}
+                    disabled={toggleLoading}
+                    data-test='habit-create-save-btn'
+                >
                     {toggleLoading ? <Loading color='#fff' largura={84} altura={50} /> : "Salvar"}
                 </button>
             </StyledButtonsEnviarCancelar>

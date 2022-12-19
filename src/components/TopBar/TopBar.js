@@ -5,7 +5,7 @@ import { AuthContext } from "../../contexts/auth";
 const TopBar = () => {
     const { user } = useContext(AuthContext);
     return (
-        <StyledContainerTopBar>
+        <StyledContainerTopBar data-test='header'>
             <h1>TrackIt</h1>
             <span>
                 <img src={user.image} alt='Foto de perfil' />

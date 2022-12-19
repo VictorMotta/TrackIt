@@ -1,6 +1,6 @@
 export const diasSemana = [
     {
-        id: 7,
+        id: 0,
         day: "D",
     },
     {

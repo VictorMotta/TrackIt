@@ -24,6 +24,7 @@ const ButtonDiasDaSemana = ({ item, days, setDays, toggleLoading }) => {
                 colorSelected={validation && CinzaMarcado}
                 colorName={validation ? "#ffffff" : CinzaMarcado}
                 onClick={marcaDesmarca}
+                data-test='habit-day'
             >
                 {item.day}
             </StyledButtonLi>

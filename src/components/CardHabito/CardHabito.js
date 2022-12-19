@@ -60,7 +60,7 @@ const CardHabito = ({ habito, qtdChecked, setQtdChecked, atualizar, setAtualizar
     }
 
     return (
-        <StyledContainerCardHabito>
+        <StyledContainerCardHabito data-test='today-habit-container'>
             <StyledContainerInfoHabito
                 colorSequencia={
                     sequenciaDias === recordDias && sequenciaDias != 0 && recordDias != 0
@@ -68,11 +68,11 @@ const CardHabito = ({ habito, qtdChecked, setQtdChecked, atualizar, setAtualizar
                         : EscritaConteudo
                 }
             >
-                <h1>{name}</h1>
-                <p>
+                <h1 data-test='today-habit-name'>{name}</h1>
+                <p data-test='today-habit-sequence'>
                     Sequência atual: <span>{sequenciaDias} dias</span>
                 </p>
-                <p>
+                <p data-test='today-habit-record'>
                     Seu recorde: <span>{recordDias} dias</span>
                 </p>
             </StyledContainerInfoHabito>
@@ -80,6 +80,7 @@ const CardHabito = ({ habito, qtdChecked, setQtdChecked, atualizar, setAtualizar
                 colorBackground={!toggleCheck ? CinzaCheckedOff : VerdePrincipal}
                 colorBorder={!toggleCheck ? BordaCinzaCheckedOff : VerdePrincipal}
                 onClick={handleCheck}
+                data-test='today-habit-check-btn'
             >
                 <ion-icon name='checkmark-outline'></ion-icon>
             </StyledContainerCheckBox>

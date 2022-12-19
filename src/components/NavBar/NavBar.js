@@ -9,18 +9,16 @@ import { AuthContext } from "../../contexts/auth";
 const NavBar = () => {
     const { percentage } = useContext(AuthContext);
 
-    const percentageTratada = percentage.toFixed(2);
-
     return (
         <>
-            <StyledContainerNavBar>
+            <StyledContainerNavBar data-test='menu'>
                 <div>
-                    <Link to='/habitos'>
+                    <Link to='/habitos' data-test='habit-link'>
                         <h1>Hábitos</h1>
                     </Link>
-                    <Link to='/hoje'>
+                    <Link to='/hoje' data-test='today'>
                         <CircularProgressbar
-                            value={percentageTratada}
+                            value={percentage}
                             text='Hoje'
                             background
                             backgroundPadding={6}
@@ -33,7 +31,7 @@ const NavBar = () => {
                             })}
                         />
                     </Link>
-                    <Link to='/historico'>
+                    <Link to='/historico' data-test='history-link'>
                         <h1>Histórico</h1>
                     </Link>
                 </div>

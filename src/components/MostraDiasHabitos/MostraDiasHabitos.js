@@ -5,11 +5,19 @@ const MostraDiasHabitos = ({ day, selectedDays }) => {
     return (
         <>
             {selectedDays.includes(day.id) ? (
-                <StyledMostraDiasLi colorLetra='#fff' colorSelected={CinzaMarcado}>
+                <StyledMostraDiasLi
+                    colorLetra='#fff'
+                    colorSelected={CinzaMarcado}
+                    data-test='habit-day'
+                >
                     {day.day}
                 </StyledMostraDiasLi>
             ) : (
-                <StyledMostraDiasLi colorLetra={CinzaEscrita} colorSelected='#fff'>
+                <StyledMostraDiasLi
+                    colorLetra={CinzaEscrita}
+                    colorSelected='#fff'
+                    data-test='habit-day'
+                >
                     {day.day}
                 </StyledMostraDiasLi>
             )}

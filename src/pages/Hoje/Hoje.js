@@ -94,13 +94,15 @@ const Hoje = () => {
                 <StyledContainerDataEPorcentagem
                     colorLetterSpan={percentage === 0 ? EscritaPgHoje : VerdePrincipal}
                 >
-                    <h1>
+                    <h1 data-test='today'>
                         {diaSemana}, {dia}/{mes}
                     </h1>
                     {percentage === 0 ? (
-                        <span>Nenhum hábito concluído ainda</span>
+                        <span data-test='today-counter'>Nenhum hábito concluído ainda</span>
                     ) : (
-                        <span>{percentage.toFixed(2)}% dos hábitos concluídos</span>
+                        <span data-test='today-counter'>
+                            {percentage.toFixed(0)}% dos hábitos concluídos
+                        </span>
                     )}
                 </StyledContainerDataEPorcentagem>
                 <StyledContainerListaMeusHabitos>

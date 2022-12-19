@@ -37,6 +37,7 @@ const Login = () => {
             <img src={Logo} alt='Logo da track it' />
             <form onSubmit={handleSubmit}>
                 <input
+                    data-test='email-input'
                     type='email'
                     name='email'
                     id='email'
@@ -46,6 +47,7 @@ const Login = () => {
                     disabled={toggleLoading}
                 />
                 <input
+                    data-test='password-input'
                     type='password'
                     name='password'
                     id='password'
@@ -54,11 +56,13 @@ const Login = () => {
                     value={password}
                     disabled={toggleLoading}
                 />
-                <button type='submit' disabled={toggleLoading}>
+                <button data-test='login-btn' type='submit' disabled={toggleLoading}>
                     {toggleLoading ? <Loading color='#fff' /> : "Entrar"}
                 </button>
             </form>
-            <Link to='/cadastro'>Não tem uma conta? Cadastre-se!</Link>
+            <Link to='/cadastro' data-test='signup-link'>
+                Não tem uma conta? Cadastre-se!
+            </Link>
         </StyledContainerPrincipalLogin>
     );
 };

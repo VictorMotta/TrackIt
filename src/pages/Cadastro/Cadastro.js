@@ -42,6 +42,7 @@ const Cadastro = () => {
             <img src={Logo} alt='Logo da TrackIt'></img>
             <form onSubmit={finalizarCadastro}>
                 <input
+                    data-test='email-input'
                     type='email'
                     name='email'
                     id='email'
@@ -52,6 +53,7 @@ const Cadastro = () => {
                     required
                 />
                 <input
+                    data-test='password-input'
                     type='password'
                     name='password'
                     id='password'
@@ -62,6 +64,7 @@ const Cadastro = () => {
                     required
                 />
                 <input
+                    data-test='user-name-input'
                     type='text'
                     name='nome'
                     id='nome'
@@ -72,6 +75,7 @@ const Cadastro = () => {
                     required
                 />
                 <input
+                    data-test='user-image-input'
                     type='url'
                     name='foto'
                     id='foto'
@@ -81,11 +85,13 @@ const Cadastro = () => {
                     disabled={toggleLoading}
                     required
                 />
-                <button disabled={toggleLoading} type='submit'>
+                <button disabled={toggleLoading} type='submit' data-test='signup-btn'>
                     {toggleLoading ? <Loading color='#fff' /> : "Cadastrar"}
                 </button>
             </form>
-            <Link to='/'>Já tem uma conta? Faça login!</Link>
+            <Link data-test='login-link' to='/'>
+                Já tem uma conta? Faça login!
+            </Link>
         </StyledContainerPrincipalCadastro>
     );
 };

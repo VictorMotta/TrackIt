@@ -31,14 +31,14 @@ const MeuHabito = ({ item, habitos, setHabitos }) => {
     }
 
     return (
-        <StyledContainerMeuHabito>
-            <h1>{name[0].toUpperCase() + name.substring(1)}</h1>
+        <StyledContainerMeuHabito data-test='habit-container'>
+            <h1 data-test='habit-name'>{name[0].toUpperCase() + name.substring(1)}</h1>
             <ul>
                 {diasSemana.map((day) => (
                     <MostraDiasHabitos key={day.id} day={day} selectedDays={days} />
                 ))}
             </ul>
-            <span onClick={deletaHabito}>
+            <span onClick={deletaHabito} data-test='habit-delete-btn'>
                 <ion-icon name='trash-outline'></ion-icon>
             </span>
         </StyledContainerMeuHabito>

@@ -42,7 +42,10 @@ const Habitos = () => {
             <StyledContainerHabitos>
                 <StyledMeusHabitos>
                     <h1>Meus hábitos</h1>
-                    <button onClick={() => setToggleInputShow(!toggleInputShow)}>
+                    <button
+                        data-test='habit-create-btn'
+                        onClick={() => setToggleInputShow(!toggleInputShow)}
+                    >
                         <ion-icon name='add-outline'></ion-icon>
                     </button>
                 </StyledMeusHabitos>
