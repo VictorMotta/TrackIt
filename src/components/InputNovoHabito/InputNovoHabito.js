@@ -48,7 +48,6 @@ const InputNovoHabito = ({
         });
     }
 
-    console.log(days);
     function cancelar() {
         setToggleInputShow(false);
     }

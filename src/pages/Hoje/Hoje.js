@@ -34,7 +34,7 @@ const Hoje = () => {
         setToggleLoading(true);
         const promisse = axios.get(URL, config);
         promisse.then((res) => {
-            if (res.data != [] || res.data.length != 0) {
+            if (res.data !== [] || res.data.length !== 0) {
                 console.log(res.data);
                 setToggleLoading(false);
                 const lista = res.data;
@@ -50,7 +50,7 @@ const Hoje = () => {
     }, []);
 
     useEffect(() => {
-        if (habitosHoje && habitosHoje != [] && habitosHoje.length != 0) {
+        if (habitosHoje && habitosHoje !== [] && habitosHoje.length !== 0) {
             const calcPercentage = (qtdChecked * 100) / habitosHoje.length;
             setPercentage(calcPercentage);
         }

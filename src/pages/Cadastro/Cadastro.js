@@ -32,7 +32,7 @@ const Cadastro = () => {
         });
         promisse.catch((err) => {
             setToggleLoading(false);
-            console.log(err.response.data);
+            console.log(err.response.data.details);
             alert(err.response.data.message);
         });
     }

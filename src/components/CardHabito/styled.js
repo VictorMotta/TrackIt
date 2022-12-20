@@ -35,9 +35,15 @@ export const StyledContainerInfoHabito = styled.div`
         color: ${EscritaConteudo};
         line-height: 17px;
     }
-    span {
+
+    p:nth-child(2) span {
         font-size: 13px;
-        color: ${(props) => props.colorSequencia};
+        color: ${(props) => props.colorSequenciaAtual};
+        line-height: 17px;
+    }
+    p:nth-child(3) span {
+        font-size: 13px;
+        color: ${(props) => props.colorRecord};
         line-height: 17px;
     }
 `;

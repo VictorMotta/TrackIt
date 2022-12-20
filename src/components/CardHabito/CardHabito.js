@@ -61,8 +61,14 @@ const CardHabito = ({ habito, qtdChecked, setQtdChecked }) => {
     return (
         <StyledContainerCardHabito data-test='today-habit-container'>
             <StyledContainerInfoHabito
-                colorSequencia={
-                    sequenciaDias === recordDias && sequenciaDias != 0 && recordDias != 0
+                colorSequenciaAtual={
+                    (sequenciaDias === recordDias && sequenciaDias !== 0 && recordDias !== 0) ||
+                    toggleCheck
+                        ? VerdePrincipal
+                        : EscritaConteudo
+                }
+                colorRecord={
+                    sequenciaDias === recordDias && sequenciaDias !== 0 && recordDias !== 0
                         ? VerdePrincipal
                         : EscritaConteudo
                 }

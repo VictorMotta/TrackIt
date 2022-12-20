@@ -18,7 +18,6 @@ const Habitos = () => {
     const [name, setName] = useState("");
     const [days, setDays] = useState([]);
 
-    console.log(habitos);
     useEffect(() => {
         const URL = `${BaseUrl}/habits`;
         const config = {
