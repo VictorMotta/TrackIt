@@ -15,11 +15,17 @@ import Loading from "../../components/Loading/Loading";
 import { AzulSecundario, EscritaPgHoje, VerdePrincipal } from "../../constants/colors";
 
 const Hoje = () => {
+    const dayjs = require("dayjs");
+    let updateLocale = require("dayjs/plugin/updateLocale");
+    dayjs.extend(updateLocale);
+    dayjs.updateLocale("en", {
+        weekdays: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sabado"],
+    });
+
+    console.log();
+
     const { token, percentage, setPercentage } = useContext(AuthContext);
-    const date = dayjs(new Date());
-    const [diaSemana, setDiaSemana] = useState(undefined);
-    const [dia, setDia] = useState(undefined);
-    const [mes, setMes] = useState(undefined);
+
     const [habitosHoje, setHabitosHoje] = useState(undefined);
     const [toggleLoading, setToggleLoading] = useState(false);
     const [qtdChecked, setQtdChecked] = useState();
@@ -34,8 +40,8 @@ const Hoje = () => {
         setToggleLoading(true);
         const promisse = axios.get(URL, config);
         promisse.then((res) => {
+            console.log(res.data);
             if (res.data !== [] || res.data.length !== 0) {
-                console.log(res.data);
                 setToggleLoading(false);
                 const lista = res.data;
                 setHabitosHoje(lista);
@@ -56,36 +62,6 @@ const Hoje = () => {
         }
     }, [qtdChecked]);
 
-    useEffect(() => {
-        switch (date.day()) {
-            case 0:
-                setDiaSemana("Domingo");
-                break;
-            case 1:
-                setDiaSemana("Segunda");
-                break;
-            case 2:
-                setDiaSemana("Terça");
-                break;
-            case 3:
-                setDiaSemana("Quarta");
-                break;
-            case 4:
-                setDiaSemana("Quinta");
-                break;
-            case 5:
-                setDiaSemana("Sexta");
-                break;
-            case 6:
-                setDiaSemana("Sábado");
-                break;
-            default:
-                return undefined;
-        }
-        setDia(date.date());
-        setMes(date.month() + 1);
-    }, [date]);
-
     return (
         <>
             <TopBar />
@@ -93,9 +69,7 @@ const Hoje = () => {
                 <StyledContainerDataEPorcentagem
                     colorLetterSpan={percentage === 0 ? EscritaPgHoje : VerdePrincipal}
                 >
-                    <h1 data-test='today'>
-                        {diaSemana}, {dia}/{mes}
-                    </h1>
+                    <h1 data-test='today'>{dayjs().format("dddd, DD/MM")}</h1>
                     {percentage === 0 ? (
                         <span data-test='today-counter'>Nenhum hábito concluído ainda</span>
                     ) : (
