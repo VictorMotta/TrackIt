@@ -23,7 +23,6 @@ const Hoje = () => {
     const [habitosHoje, setHabitosHoje] = useState(undefined);
     const [toggleLoading, setToggleLoading] = useState(false);
     const [qtdChecked, setQtdChecked] = useState();
-    const [atualizar, setAtualizar] = useState(false);
 
     useEffect(() => {
         const config = {
@@ -48,7 +47,7 @@ const Hoje = () => {
             console.log(err.response.data);
             setToggleLoading(false);
         });
-    }, [atualizar]);
+    }, []);
 
     useEffect(() => {
         if (habitosHoje && habitosHoje != [] && habitosHoje.length != 0) {
@@ -120,8 +119,6 @@ const Hoje = () => {
                                 habito={habito}
                                 qtdChecked={qtdChecked}
                                 setQtdChecked={setQtdChecked}
-                                atualizar={atualizar}
-                                setAtualizar={setAtualizar}
                             />
                         ))
                     )}

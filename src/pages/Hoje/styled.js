@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { AzulPrincipal, CinzaFundo, EscritaPgHoje } from "../../constants/colors";
+import { AzulPrincipal, CinzaFundo } from "../../constants/colors";
 
 export const StyledContainerPrincipalHoje = styled.div`
     font-family: "Lexend Deca", sans-serif;

@@ -1,13 +1,10 @@
 import { CinzaMarcado } from "../../constants/colors";
-import { StyledButtonLi } from "./styled";
+import { StyledButton } from "./styled";
 
 const ButtonDiasDaSemana = ({ item, days, setDays, toggleLoading }) => {
     const validation = days.includes(item.id);
 
     function marcaDesmarca() {
-        if (toggleLoading) {
-            return;
-        }
         if (!validation) {
             setDays([...days, item.id]);
         } else {
@@ -20,14 +17,15 @@ const ButtonDiasDaSemana = ({ item, days, setDays, toggleLoading }) => {
 
     return (
         <>
-            <StyledButtonLi
-                colorSelected={validation && CinzaMarcado}
+            <StyledButton
+                colorSelected={validation ? CinzaMarcado : "#FFFFFF"}
                 colorName={validation ? "#ffffff" : CinzaMarcado}
                 onClick={marcaDesmarca}
                 data-test='habit-day'
+                disabled={toggleLoading}
             >
                 {item.day}
-            </StyledButtonLi>
+            </StyledButton>
         </>
     );
 };
