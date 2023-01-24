@@ -23,6 +23,7 @@ const Login = () => {
         const promisse = axios.post(`${BaseUrl}/auth/login`, body);
         promisse.then((res) => {
             login(res.data);
+            console.log(res.data);
             setToggleLoading(false);
         });
         promisse.catch((err) => {

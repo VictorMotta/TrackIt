@@ -15,7 +15,6 @@ import Loading from "../../components/Loading/Loading";
 import { AzulSecundario, EscritaPgHoje, VerdePrincipal } from "../../constants/colors";
 
 const Hoje = () => {
-    const dayjs = require("dayjs");
     let updateLocale = require("dayjs/plugin/updateLocale");
     dayjs.extend(updateLocale);
     dayjs.updateLocale("en", {
